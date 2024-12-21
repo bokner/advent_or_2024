@@ -43,9 +43,8 @@ constraint forall(t in TASKS)(
   sum(col(task_assignment, t)) = 1
 );
 
-%solve minimize(sum(crew_cost));
+solve minimize(sum(crew_cost));
 
-solve minimize sum(c in CREWS)(sum(row(task_assignment, c)) > 0);
 %% Optional: output
 
 array[CREWS] of var set of TASKS: crew_tasks;
